@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ChatApplication chatApp = new ChatApplication();
         
         System.out.println("=== User Registration System ===");
         
@@ -12,12 +11,13 @@ public class Main {
         
         // Registration retry loop
         while (!registrationSuccessful) {
-            // Get user input            System.out.print("Enter first name: ");
-             System.out.print("Enter first name:");
+            // Get user input
+            System.out.print("Enter first name: ");
             String firstName = scanner.nextLine();
             
             System.out.print("Enter last name: ");
             String lastName = scanner.nextLine();
+            
             System.out.print("Enter username: ");
             String username = scanner.nextLine();
             
@@ -26,7 +26,6 @@ public class Main {
             
             System.out.print("Enter cell phone number: ");
             String cellPhone = scanner.nextLine();
-            
 
             // Registration process
             registration = new Registration(username, password, cellPhone, firstName, lastName);
@@ -76,6 +75,7 @@ public class Main {
             
             if (loginSuccess) {
                 loginSuccessful = true;
+                ChatApplication chatApp = new ChatApplication();
                 chatApp.setLoggedIn(true);
                 chatApp.startApplication(registration.getFirstName(), registration.getLastName());
             } else {
